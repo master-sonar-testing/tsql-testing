@@ -57,19 +57,19 @@ CREATE TABLE ParkingServis.PARKING_SLUZBA
 	sluzba_id int not null, 
 	br_zap int, 
 	br_parkiralista int, 
-	grad varchar(50) not null,
+	grad varchar2(50) not null,
 	CONSTRAINT PK_PARKING_SLUZBA PRIMARY KEY (sluzba_id)
 );
 
 CREATE TABLE ParkingServis.KONTROLOR
 (
 	kontrolor_id int not null, 
-	zap_ime varchar(50) not null, 
-	zap_prz varchar(50) not null, 
-	zap_jmbg varchar(20) not null, 
-	zap_adresa varchar(100) not null, 
-	zap_tel varchar(20) not null,
-	struc_spr varchar(100) not null, 
+	zap_ime varchar2(50) not null, 
+	zap_prz varchar2(50) not null, 
+	zap_jmbg varchar2(20) not null, 
+	zap_adresa varchar2(100) not null, 
+	zap_tel varchar2(20) not null,
+	struc_spr varchar2(100) not null, 
 	dat_zaposlenja date not null, 
 	sluzba_id int not null,
 	CONSTRAINT PK_KONTROLOR PRIMARY KEY (kontrolor_id),
@@ -81,8 +81,8 @@ CREATE TABLE ParkingServis.PARKIRALISTE
 	park_id int not null,
 	br_mesta int,
 	dnevna_karta bit,
-	ulica varchar(100) not null,
-	zona varchar(200) not null,
+	ulica varchar2(100) not null,
+	zona varchar2(200) not null,
 	sluzba_id int not null,
 	CONSTRAINT PK_PARKIRALISTE PRIMARY KEY (park_id,sluzba_id),
 	CONSTRAINT FK_PARKIRALISTE_PARKING_SLUZBA FOREIGN KEY (sluzba_id) REFERENCES ParkingServis.PARKING_SLUZBA (sluzba_id),
@@ -103,8 +103,8 @@ CREATE TABLE ParkingServis.KONTROLISE
 CREATE TABLE ParkingServis.FIZICKO_LICE
 (
 	fizickol_id int not null, 
-	fl_ime varchar(50) not null, 
-	fl_prz varchar(50) not null,
+	fl_ime varchar2(50) not null, 
+	fl_prz varchar2(50) not null,
 	CONSTRAINT PK_FIZICKO_LICE PRIMARY KEY (fizickol_id)
 );
 
@@ -112,24 +112,24 @@ CREATE TABLE ParkingServis.PRAVNO_LICE
 (
 	pravnol_id int not null, 
 	PIB int not null, 
-	pravnol_naziv varchar(100) not null,
+	pravnol_naziv varchar2(100) not null,
 	CONSTRAINT PK_PRAVNO_LICE PRIMARY KEY (pravnol_id)
 );
 
 CREATE TABLE ParkingServis.PREDUZETNIK
 (
 	preduzetnik_id int not null, 
-	pred_naziv varchar(100) not null,
+	pred_naziv varchar2(100) not null,
 	CONSTRAINT PK_PREDUZETNIK PRIMARY KEY (preduzetnik_id)
 );
 
 CREATE TABLE ParkingServis.KLIJENT
 (
 	klijent_id int not null, 
-	email varchar(50), 
-	klij_tel varchar(50) not null, 
-	ulica varchar(100) not null, 
-	br_ulice varchar(10) not null, 
+	email varchar2(50), 
+	klij_tel varchar2(50) not null, 
+	ulica varchar2(100) not null, 
+	br_ulice varchar2(10) not null, 
 	fizickol_id int, 
 	pravnol_id int, 
 	preduzetnik_id int,
@@ -165,7 +165,7 @@ CREATE TABLE ParkingServis.PARKIRANO_NA
 CREATE TABLE ParkingServis.VRSTA_KAZNE
 (
 	vrsta_id int not null, 
-	vrsta_naziv varchar(40),
+	vrsta_naziv varchar2(40),
 	CONSTRAINT PK_VRSTA_KAZNE PRIMARY KEY (vrsta_id)
 );
 
@@ -180,7 +180,7 @@ CREATE TABLE ParkingServis.KAZNA
 );
 
 ALTER TABLE ParkingServis.PARKIRALISTE
-	ADD vrsta_park varchar(200);
+	ADD vrsta_park varchar2(200);
 GO
 
 ALTER TABLE ParkingServis.PARKIRALISTE
@@ -188,7 +188,7 @@ ALTER TABLE ParkingServis.PARKIRALISTE
 GO
 
 ALTER TABLE ParkingServis.PARKING_SLUZBA
-	ADD naziv_pred varchar(300) not null;
+	ADD naziv_pred varchar2(300) not null;
 GO
 
 ALTER TABLE ParkingServis.VRSTA_KAZNE
@@ -196,11 +196,11 @@ ALTER TABLE ParkingServis.VRSTA_KAZNE
 GO
 
 ALTER TABLE ParkingServis.PREDUZETNIK
-	ADD mesto varchar(70) not null;
+	ADD mesto varchar2(70) not null;
 GO
 
 ALTER TABLE ParkingServis.FIZICKO_LICE
-	ADD fl_mesto varchar(50) not null;
+	ADD fl_mesto varchar2(50) not null;
 GO
 
 ALTER TABLE ParkingServis.FIZICKO_LICE
@@ -212,11 +212,11 @@ ALTER TABLE ParkingServis.PREDUZETNIK
 GO
 
 ALTER TABLE ParkingServis.KLIJENT
-	ADD mesto varchar(70) not null;
+	ADD mesto varchar2(70) not null;
 GO
 
 ALTER TABLE ParkingServis.VOZILO
-	ADD reg_oznaka varchar(11) not null;
+	ADD reg_oznaka varchar2(11) not null;
 GO
 
 ALTER TABLE ParkingServis.PARKIRANO_NA

@@ -415,8 +415,6 @@ VALUES (211546,2,6);
 GO
 
 --update za vreme parkiranja
-select * from ParkingServis.PARKIRANO_NA;
-
 UPDATE ParkingServis.PARKIRANO_NA 
 SET datum_park = GETDATE()
 WHERE reg_br = 1;
